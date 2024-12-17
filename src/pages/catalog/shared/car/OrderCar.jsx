@@ -6,6 +6,7 @@ import { Stack, TextField, Button, Typography } from "@mui/material";
 import axios from "axios";
 import { BASE_API } from "../../../../constant/apiParams";
 import { fetchDataHook } from "../../../../hooks/fetchDataHook";
+import { Car } from "./Car";
 
 export const OrderCar = () => {
   const user = useSelector((state) => state.user);
@@ -73,63 +74,91 @@ export const OrderCar = () => {
   };
 
   return (
-    <Stack spacing={3} sx={{ maxWidth: 400, margin: "auto", mt: 4 }}>
-      <Typography variant="h5">Order Car</Typography>
+    <>
+      <Typography marginTop={"5rem"} textAlign={"center"} variant="h5">
+        Order Car
+      </Typography>
+      <Stack
+        marginTop={"2rem"}
+        spacing={3}
+        width={"100vw"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        direction={"row"}
+      >
+        {carDetails && (
+          <Stack>
+            <Car car={carDetails} />
+          </Stack>
+        )}
 
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {/* Start Time */}
-        <Controller
-          name="startTime"
-          control={control}
-          rules={{ required: "Start time is required" }}
-          render={({ field }) => (
-            <TextField
-              {...field}
-              label="Start Time"
-              type="date"
-              InputLabelProps={{ shrink: true }}
-              error={!!errors.startTime}
-              helperText={errors.startTime?.message}
-            />
-          )}
-        />
-
-        {/* End Time */}
-        <Controller
-          name="endTime"
-          control={control}
-          rules={{
-            required: "End time is required",
-            validate: (value) =>
-              value > startTime || "End time must be after start time",
-          }}
-          render={({ field }) => (
-            <TextField
-              {...field}
-              label="End Time"
-              type="date"
-              InputLabelProps={{ shrink: true }}
-              error={!!errors.endTime}
-              helperText={errors.endTime?.message}
-            />
-          )}
-        />
-
-        {/* Total Price */}
-        <Typography variant="h6">
-          Total Price: ${totalPrice.toFixed(2)}
-        </Typography>
-
-        {/* Submit Button */}
-        <Button
-          variant="contained"
-          color="primary"
-          type="submit"
-          disabled={!totalPrice || totalPrice <= 0}
+        <Stack
+          padding={"3rem"}
+          alignItems={"center"}
+          justifyContent={"center"}
+          border={"1px solid black"}
+          borderRadius={"8px"}
         >
-          Submit Order
-        </Button>
-      </form>
-    </Stack>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            {/* Start Time */}
+            <div>
+              <Controller
+                name="startTime"
+                control={control}
+                rules={{ required: "Start time is required" }}
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    label="Start Time"
+                    type="date"
+                    InputLabelProps={{ shrink: true }}
+                    error={!!errors.startTime}
+                    helperText={errors.startTime?.message}
+                  />
+                )}
+              />
+            </div>
+
+            {/* End Time */}
+            <div>
+              <Controller
+                name="endTime"
+                control={control}
+                rules={{
+                  required: "End time is required",
+                  validate: (value) =>
+                    value > startTime || "End time must be after start time",
+                }}
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    label="End Time"
+                    type="date"
+                    InputLabelProps={{ shrink: true }}
+                    error={!!errors.endTime}
+                    helperText={errors.endTime?.message}
+                  />
+                )}
+              />
+            </div>
+
+            {/* Total Price */}
+            <Typography variant="h6">
+              Total Price: ${totalPrice.toFixed(2)}
+            </Typography>
+
+            {/* Submit Button */}
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              disabled={!totalPrice || totalPrice <= 0}
+            >
+              Submit Order
+            </Button>
+          </form>
+        </Stack>
+      </Stack>
+    </>
   );
 };

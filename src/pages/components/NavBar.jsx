@@ -18,7 +18,7 @@ export const NavBar = () => {
         justifyContent={"space-between"}
         margin={"0 2vw"}
       >
-        <img src={imgLogo} style={{ height: "3vh" }} />
+        <img src={imgLogo} style={{ height: "5vh", borderRadius: "50%" }} />
         {flug && (
           <CustomLink to={"/admin"} text={"admin"} variant={"subtitle1"} />
         )}
