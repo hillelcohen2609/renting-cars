@@ -1,18 +1,22 @@
 import { CircularProgress, Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { AddRents } from "./shared/AddRents";
 import { UpdateRents } from "./shared/UpdateRents";
 import { fetchDataHook } from "../../../../hooks/fetchDataHook";
 import { BASE_API } from "../../../../constant/apiParams";
 
 export const Rents = () => {
-  const allRents = fetchDataHook(`${BASE_API}api/renting/getAllRentings`);
+  const [restore, setRestore] = useState(1);
+  const allRents = fetchDataHook(
+    `${BASE_API}api/renting/getAllRentings`,
+    restore
+  );
 
   return (
     <Stack alignItems={"center"} justifyContent={"center"}>
       <Typography variant="h5">Add a new rent</Typography>
 
-      <AddRents />
+      <AddRents setRestore={setRestore} />
 
       {allRents ? (
         allRents.length > 0 ? (
@@ -31,7 +35,7 @@ export const Rents = () => {
             >
               {allRents.map((rent) => (
                 <Stack key={rent.idRenting} marginTop={"5vh"}>
-                  <UpdateRents rent={rent} />
+                  <UpdateRents rent={rent} setRestore={setRestore} />
                 </Stack>
               ))}
             </div>

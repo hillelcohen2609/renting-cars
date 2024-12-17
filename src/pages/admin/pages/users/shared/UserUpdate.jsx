@@ -12,7 +12,7 @@ import {
 import { DeleteForever, Update } from "@mui/icons-material";
 import { deleteUser, updateUser } from "../../../../../api/admin/users";
 
-export const UserUpdate = ({ user }) => {
+export const UserUpdate = ({ user, setRestore }) => {
   const {
     register,
     handleSubmit,
@@ -38,8 +38,10 @@ export const UserUpdate = ({ user }) => {
       };
       console.log("Update:", formattedData);
       updateUser(userId, { ...formattedData, idUser: userId });
+      setRestore((prev) => prev + 1);
     } else if (action === "delete") {
       deleteUser(userId);
+      setRestore((prev) => prev + 1);
     }
   };
 

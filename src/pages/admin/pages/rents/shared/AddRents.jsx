@@ -3,7 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import { Button, Stack, TextField } from "@mui/material";
 import { addRents } from "../../../../../api/admin/rents";
 
-export const AddRents = () => {
+export const AddRents = ({ setRestore }) => {
   const { control, handleSubmit } = useForm({
     defaultValues: {
       startTime: "",
@@ -25,9 +25,8 @@ export const AddRents = () => {
       endTime: endTimeLocalDate,
     };
 
-    console.log("Rent data submitted:", rentData);
-    // Add your logic to send this data to the backend (Java API) which expects LocalDate
     addRents(rentData);
+    setRestore((prev) => prev + 1);
   };
 
   return (

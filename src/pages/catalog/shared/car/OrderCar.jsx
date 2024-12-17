@@ -7,6 +7,7 @@ import axios from "axios";
 import { BASE_API } from "../../../../constant/apiParams";
 import { fetchDataHook } from "../../../../hooks/fetchDataHook";
 import { Car } from "./Car";
+import { toast } from "react-toastify";
 
 export const OrderCar = () => {
   const user = useSelector((state) => state.user);
@@ -61,15 +62,15 @@ export const OrderCar = () => {
         carAvailble.data.length > 0 ||
         carAvailble.data.filter((car) => car.idCar === id);
       if (isThisCarAvailble) {
-        alert("the car cant be rents those dates");
+        toast.info("the car cant be rents those dates");
       } else {
         console.log("Submitting data:", orderData);
         await axios.post(`${BASE_API}api/renting/addRenting`, orderData);
-        alert("Order submitted successfully!");
+        toast.success("Order submitted successfully!");
       }
     } catch (error) {
       console.error("Error submitting order:", error);
-      alert("Failed to submit order.");
+      toast.error("Failed to submit order.");
     }
   };
 

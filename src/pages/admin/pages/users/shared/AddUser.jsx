@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Stack, TextField, Button, Select, MenuItem } from "@mui/material";
 import { addUser } from "../../../../../api/admin/users";
 
-export const AddUser = () => {
+export const AddUser = ({ setRestore }) => {
   const {
     register,
     handleSubmit,
@@ -18,6 +18,7 @@ export const AddUser = () => {
       isAdmin: data.isAdmin === "true",
     };
     addUser(formattedData);
+    setRestore((prev) => prev + 1);
 
     // Clear all fields after submission
     reset();
@@ -27,9 +28,9 @@ export const AddUser = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Stack marginTop={"2vh"} direction={"row"}>
         <TextField
-          label="name"
+          label="username"
           fullWidth
-          {...register("name", { required: "Name is required" })}
+          {...register("username", { required: "Name is required" })}
           error={!!errors.name}
           helperText={errors.name?.message}
         />

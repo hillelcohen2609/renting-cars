@@ -14,6 +14,7 @@ import { AddUser } from "./shared/AddUser";
 
 export const Users = () => {
   const [users, setUsers] = useState([]);
+  const [restore, setRestore] = useState(1);
 
   console.log("users", users);
 
@@ -23,13 +24,13 @@ export const Users = () => {
         setUsers(res.data);
       }
     });
-  }, []);
+  }, [restore]);
 
   return (
     <Stack alignItems={"center"} justifyContent={"center"}>
       <Stack margin={"2vh 0"}>
         <Typography variant="h4">Add user:</Typography>
-        <AddUser />
+        <AddUser setRestore={setRestore} />
       </Stack>
       <Typography variant="h4">All users</Typography>
       {users.length > 0 ? (
@@ -44,7 +45,7 @@ export const Users = () => {
           }}
         >
           {users.map((user) => (
-            <UserUpdate key={user.idUser} user={user} />
+            <UserUpdate key={user.idUser} user={user} setRestore={setRestore} />
           ))}
         </div>
       ) : (

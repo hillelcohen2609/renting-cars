@@ -3,7 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import { Stack, TextField, Button } from "@mui/material";
 import { updateCar, deleteCar } from "../../../../../api/admin/cars";
 
-export const CarUpdate = ({ car, onUpdate }) => {
+export const CarUpdate = ({ car, setRefetchCars }) => {
   const {
     control,
     handleSubmit,
@@ -16,9 +16,11 @@ export const CarUpdate = ({ car, onUpdate }) => {
     if (action === "update") {
       //apdate car
       updateCar(data, idCar);
+      setRefetchCars((prev) => prev + 1);
     } else {
       //delete car
       deleteCar(idCar);
+      setRefetchCars((prev) => prev + 1);
     }
 
     //onUpdate(data); // Call the parent-provided update function with the updated car details

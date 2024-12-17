@@ -4,7 +4,7 @@ import { Stack, TextField, Button } from "@mui/material";
 import { Add } from "@mui/icons-material";
 import { addCar } from "../../../../../api/admin/cars";
 
-export const AddCar = () => {
+export const AddCar = ({ setRefetchCars }) => {
   const {
     control,
     handleSubmit,
@@ -23,6 +23,7 @@ export const AddCar = () => {
 
   const onSubmit = (data) => {
     addCar(data);
+    setRefetchCars((prev) => prev + 1);
   };
 
   return (

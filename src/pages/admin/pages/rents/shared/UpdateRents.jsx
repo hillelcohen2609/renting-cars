@@ -43,11 +43,13 @@ export const UpdateRents = ({ rent }) => {
     };
 
     updateRent(data.idRenting, rentData);
+    setRestore((prev) => prev + 1);
   };
 
   const handleDelete = () => {
     if (rent) {
       deleteRent(rent.idRenting);
+      setRestore((prev) => prev + 1);
     }
   };
 

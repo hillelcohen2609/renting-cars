@@ -1,5 +1,6 @@
 import axios from "axios";
 import { BASE_API } from "../../constant/apiParams";
+import { toast } from "react-toastify";
 
 export const getAllUsers = async () => {
   const response = {
@@ -21,27 +22,27 @@ export const updateUser = async (id, user) => {
 
     const res = await axios.put(BASE_API + `api/users/updateUser/${id}`, user);
     if (res) {
-      alert("user updated sucessfully");
+      toast.success("user updated sucessfully");
     }
   } catch (error) {
-    alert("somthing went wrong");
+    toast.error("somthing went wrong");
   }
 };
 
 export const addUser = async (body) => {
   try {
     axios.post(BASE_API + "api/users/addUser", body);
-    alert("user added sucessfully");
+    toast.success("user added sucessfully");
   } catch (error) {
-    alert("user didnt updated");
+    toast.error("user didnt updated");
   }
 };
 
 export const deleteUser = async (id) => {
   try {
     axios.delete(BASE_API + `api/users/deleteUser/${id}`);
-    alert("user deleted sucessfully");
+    toast.success("user deleted sucessfully");
   } catch (error) {
-    alert("user didnt deleted");
+    toast.error("user didnt deleted");
   }
 };

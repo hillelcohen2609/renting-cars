@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 import { BASE_API } from "../../constant/apiParams";
 
@@ -7,26 +8,27 @@ const baseRoute = BASE_API + "api/cars";
 export const addCar = async (body) => {
   try {
     await axios.post(baseRoute + "/addCar", body);
-    alert("car added successfully");
+    toast.success("car added successfully");
   } catch (error) {
-    alert("somthing went wrong");
+    toast.error("somthing went wrong");
   }
 };
 
 export const updateCar = async (body, idCar) => {
   try {
     await axios.put(baseRoute + `/updateCar/${idCar}`, body);
-    alert("car apdated successfully");
+    toast.success("car apdated successfully!");
   } catch (error) {
-    alert("somthing went wrong");
+    toast.error("somthing went wrong");
   }
 };
 
 export const deleteCar = async (idCar) => {
   try {
     await axios.delete(baseRoute + `/deleteCar/${idCar}`);
-    alert("car deleted successfully");
+
+    toast.success("car deleted successfully");
   } catch (error) {
-    alert("somthing went wrong");
+    toast.error("somthing went wrong");
   }
 };
