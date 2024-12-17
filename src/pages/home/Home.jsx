@@ -29,7 +29,7 @@ export const Home = () => {
         marginTop={"5vh"}
         marginBottom={"5vh"}
       >
-        Welcome to MalyDrive – Your Trusted Car Rental Partner!
+        Welcome to Take Car(e) – Your Trusted Car Rental Partner!
       </Typography>
       <img src={car} alt="car logo" style={{ width: "10vw" }} />
 
