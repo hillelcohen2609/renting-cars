@@ -53,7 +53,13 @@ export const UpdateRents = ({ rent }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Stack spacing={2}>
+      <Stack
+        spacing={2}
+        padding={"1rem"}
+        border={"1px solid black"}
+        borderRadius={"8px"}
+        margin={"2vh 2vw"}
+      >
         <Controller
           name="idRenting"
           control={control}

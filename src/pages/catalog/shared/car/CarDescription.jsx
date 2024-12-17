@@ -62,12 +62,6 @@ export const CarDescription = () => {
           borderRadius={"8px"}
         >
           <Typography variant="h4">Car Description:</Typography>
-          {isAdmin && (
-            <>
-              <input type="file" onChange={handleFileChange} accept="image/*" />
-              <button onClick={handleUpload}>Upload Image</button>
-            </>
-          )}
 
           <img
             src={
@@ -78,6 +72,23 @@ export const CarDescription = () => {
             alt=""
             style={{ width: "30%", margin: "auto" }}
           />
+          {isAdmin && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+                marginTop: "2vh",
+              }}
+            >
+              <input type="file" onChange={handleFileChange} accept="image/*" />
+              <Button size="small" variant="contained" onClick={handleUpload}>
+                Upload Image
+              </Button>
+            </div>
+          )}
           <Div text={carDetails.brand} description={"the brand car:"} />
           <Div text={carDetails.color} description={"the car color:"} />
           <Div text={carDetails.description} description={"description:"} />
@@ -89,7 +100,7 @@ export const CarDescription = () => {
           />
           <Div text={carDetails.type} description={"the type car:"} />
           <Button
-            sx={{ background: "red" }}
+            sx={{ background: "blue" }}
             variant="contained"
             onClick={() => navigate("order")}
           >

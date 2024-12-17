@@ -3,6 +3,7 @@ import { CustomLink } from "../../component/ui/CustomLink";
 import { logout } from "../../redux/loginSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import imgLogo from "../../assets/carIcon.webp";
 
 export const NavBar = () => {
   const dispach = useDispatch();
@@ -17,11 +18,7 @@ export const NavBar = () => {
         justifyContent={"space-between"}
         margin={"0 2vw"}
       >
-        <CustomLink
-          to={"/account/:id"}
-          text={"account"}
-          variant={"subtitle1"}
-        />
+        <img src={imgLogo} style={{ height: "3vh" }} />
         {flug && (
           <CustomLink to={"/admin"} text={"admin"} variant={"subtitle1"} />
         )}

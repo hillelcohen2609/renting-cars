@@ -10,14 +10,32 @@ export const Rents = () => {
 
   return (
     <Stack alignItems={"center"} justifyContent={"center"}>
+      <Typography variant="h5">Add a new rent</Typography>
+
       <AddRents />
+
       {allRents ? (
         allRents.length > 0 ? (
-          allRents.map((rent) => (
-            <Stack key={rent.idRenting} marginTop={"5vh"}>
-              <UpdateRents rent={rent} />
-            </Stack>
-          ))
+          <>
+            <Typography variant="h5">All rents:</Typography>
+
+            <div
+              style={{
+                display: "flex",
+                direction: "row",
+                flexWrap: "wrap",
+                alignItems: "center",
+                justifyContent: "center",
+                margin: "0.5rem",
+              }}
+            >
+              {allRents.map((rent) => (
+                <Stack key={rent.idRenting} marginTop={"5vh"}>
+                  <UpdateRents rent={rent} />
+                </Stack>
+              ))}
+            </div>
+          </>
         ) : (
           <Typography variant="h5">
             Sorry there are no renting availble
