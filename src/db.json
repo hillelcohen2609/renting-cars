@@ -1,0 +1,84 @@
+{
+  "cars": [
+    {
+      "idCar": 12,
+      "brand": "skoda",
+      "description": "magnific car and very speedy",
+      "price": 300,
+      "numOfPlace": 5,
+      "color": "red",
+      "type": "sport",
+      "model": "octavia"
+    },
+    {
+      "idCar": 12,
+      "brand": "skoda",
+      "description": "magnific car and very speedy",
+      "price": 300,
+      "numOfPlace": 5,
+      "color": "red",
+      "type": "sport",
+      "model": "octavia"
+    },
+    {
+      "idCar": 12,
+      "brand": "skoda",
+      "description": "magnific car and very speedy",
+      "price": 300,
+      "numOfPlace": 5,
+      "color": "red",
+      "type": "sport",
+      "model": "octavia"
+    },
+    {
+      "idCar": 12,
+      "brand": "skoda",
+      "description": "magnific car and very speedy",
+      "price": 300,
+      "numOfPlace": 5,
+      "color": "red",
+      "type": "sport",
+      "model": "octavia"
+    },
+    {
+      "idCar": 12,
+      "brand": "skoda",
+      "description": "magnific car and very speedy",
+      "price": 300,
+      "numOfPlace": 5,
+      "color": "red",
+      "type": "sport",
+      "model": "octavia"
+    }
+  ],
+  "rentings": [
+    {
+      "idRenting": 18,
+      "startTime": "2024-12-15",
+      "endTime": "2024-12-16",
+      "carId": 12,
+      "idUser": 2,
+      "customerId": 2
+    }
+  ],
+  "users": [
+    {
+      "idUser": 2,
+      "username": "hillel",
+      "password": "123456",
+      "email": "example@gmail.com",
+      "phone": "055-5555-555",
+      "numLicense": "11111111",
+      "tz": "22222222"
+    }
+  ],
+  "response": [
+    {
+      "idResponses": 6,
+      "comment": "we enjoyed the car",
+      "commentDate": "2024-12-16",
+      "rating": 5,
+      "status": "good"
+    }
+  ]
+}
