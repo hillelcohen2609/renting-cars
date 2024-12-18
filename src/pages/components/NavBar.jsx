@@ -1,14 +1,14 @@
 import { AppBar, Button, Stack } from "@mui/material";
 import { CustomLink } from "../../component/ui/CustomLink";
 import { logout } from "../../redux/loginSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import imgLogo from "../../assets/carIcon.webp";
 
 export const NavBar = () => {
   const dispach = useDispatch();
   const navigate = useNavigate();
-  const flug = true;
+  const isAdmin = useSelector((state) => state.user.isAdmin);
   return (
     <AppBar sx={{ height: "7vh", boxShadow: "none" }}>
       <Stack
@@ -19,7 +19,7 @@ export const NavBar = () => {
         margin={"0 2vw"}
       >
         <img src={imgLogo} style={{ height: "5vh", borderRadius: "50%" }} />
-        {flug && (
+        {isAdmin && (
           <CustomLink to={"/admin"} text={"admin"} variant={"subtitle1"} />
         )}
         <CustomLink to={"/catalog"} text={"catalog"} variant={"subtitle1"} />
