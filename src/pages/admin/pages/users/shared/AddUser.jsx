@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Stack, TextField, Button, Select, MenuItem } from "@mui/material";
 import { addUser } from "../../../../../api/admin/users";
+import { Add } from "@mui/icons-material";
 
 export const AddUser = ({ setRestore }) => {
   const {
@@ -78,7 +79,7 @@ export const AddUser = ({ setRestore }) => {
           <MenuItem value="true">True</MenuItem>
           <MenuItem value="false">False</MenuItem>
         </Select>
-        <Button variant="outlined" type="submit">
+        <Button startIcon={<Add />} variant="contained" type="submit">
           Add
         </Button>
       </Stack>

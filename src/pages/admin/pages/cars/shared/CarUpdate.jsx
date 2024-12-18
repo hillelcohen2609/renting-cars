@@ -30,7 +30,15 @@ export const CarUpdate = ({ car, setRefetchCars }) => {
     <form
       onSubmit={handleSubmit((data) => onSubmit(data, "update", car.idCar))}
     >
-      <Stack spacing={2} direction={"row"} marginTop={"2vh"}>
+      <Stack
+        spacing={2}
+        direction={"row"}
+        marginTop={"2vh"}
+        padding={"1rem"}
+        border={"1px solid grey"}
+        borderRadius={"8px"}
+        marginBottom={"5vh"}
+      >
         <Controller
           name="brand"
           control={control}
