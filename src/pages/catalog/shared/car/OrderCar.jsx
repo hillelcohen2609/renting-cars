@@ -49,7 +49,7 @@ export const OrderCar = () => {
     try {
       const orderData = {
         idUser: user.idUser,
-        carId: id,
+        car: carDetails,
         startTime: data.startTime,
         endTime: data.endTime,
         customerId: user.idUser,
@@ -57,14 +57,19 @@ export const OrderCar = () => {
       const carAvailble = await axios.get(
         `http://localhost:8080/api/cars/getCarsWithSameRenting?startDate=${data.startTime}&endDate=${data.endTime}`
       );
+      console.log("carAvailble", carAvailble);
 
       const allRentInSameDateandSameId = carAvailble?.data?.filter((car) => {
+        console.log("car", car);
+
         return car.idCar === id;
       }); //=>[car] or []
 
+      console.log("allRentInSameDateandSameId", allRentInSameDateandSameId);
+
       const isThisCarAvailble = allRentInSameDateandSameId;
 
-      if (isThisCarAvailble && a.length > 0) {
+      if (isThisCarAvailble && isThisCarAvailble.length === 0) {
         toast.info("the car cant be rents those dates");
       } else {
         await axios.post(`${BASE_API}api/renting/addRenting`, orderData);
