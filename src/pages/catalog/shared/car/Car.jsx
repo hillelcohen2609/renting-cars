@@ -6,7 +6,6 @@ const defaultImage =
 
 export const Car = ({ car }) => {
   const navigate = useNavigate();
-  console.log("car", car);
 
   return (
     <div onClick={() => navigate(`car/${car.idCar}`)}>

@@ -57,14 +57,12 @@ export const OrderCar = () => {
       const carAvailble = await axios.get(
         `http://localhost:8080/api/cars/getCarsWithSameRenting?startDate=${data.startTime}&endDate=${data.endTime}`
       );
-      console.log("carAvailble", carAvailble.data);
       const isThisCarAvailble =
         carAvailble.data.length > 0 ||
         carAvailble.data.filter((car) => car.idCar === id);
       if (isThisCarAvailble) {
         toast.info("the car cant be rents those dates");
       } else {
-        console.log("Submitting data:", orderData);
         await axios.post(`${BASE_API}api/renting/addRenting`, orderData);
         toast.success("Order submitted successfully!");
       }

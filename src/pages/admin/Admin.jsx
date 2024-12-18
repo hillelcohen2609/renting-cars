@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 export const Admin = () => {
   const name = useSelector((state) => state.user.userName);
   const navigate = useNavigate();
-  console.log("name", name);
 
   return (
     <Stack alignItems={"center"} justifyContent={"center"}>

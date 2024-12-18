@@ -4,8 +4,6 @@ import { ArrowBack } from "@mui/icons-material";
 import page404 from "../../assets/page404.svg";
 
 export const NotFound = () => {
-  console.log("40404404");
-
   return (
     <Stack height={"93vh"} justifyContent={"center"} alignItems={"center"}>
       <img src={page404} alt="404 icon" style={{ height: "40vh" }} />

@@ -20,8 +20,6 @@ export const CustumeDatePicker = () => {
       //const milliseconds = value.get("millisecond");
       const localTime = value.valueOf();
       const date = new Date(value.toDate()).getUTCMilliseconds();
-      console.log("Selected Date (Local):", localTime);
-      console.log("Milliseconds:", date);
       if (key === 1) {
         //Base range
         //TODO set base range

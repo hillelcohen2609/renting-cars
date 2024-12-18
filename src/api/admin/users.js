@@ -18,8 +18,6 @@ export const getAllUsers = async () => {
 
 export const updateUser = async (id, user) => {
   try {
-    console.log("user", user);
-
     const res = await axios.put(BASE_API + `api/users/updateUser/${id}`, user);
     if (res) {
       toast.success("user updated sucessfully");

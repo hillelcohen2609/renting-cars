@@ -13,7 +13,6 @@ export const AddUser = ({ setRestore }) => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data); // handle form data submission here
     const formattedData = {
       ...data,
       isAdmin: data.isAdmin === "true",

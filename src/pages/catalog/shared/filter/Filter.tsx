@@ -45,7 +45,6 @@ export const Filter = () => {
           return false;
         }
       });
-    console.log("filteredCars", filteredCars);
 
     dispatch(setCarsData(filteredCars));
   };

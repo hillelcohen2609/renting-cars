@@ -4,8 +4,6 @@ import { Button, Stack, TextField } from "@mui/material";
 import { deleteRent, updateRent } from "../../../../../api/admin/rents";
 
 export const UpdateRents = ({ rent }) => {
-  console.log("rent", rent.idRenting);
-
   const { control, handleSubmit, reset } = useForm({
     defaultValues: {
       idRenting: rent.idRenting,

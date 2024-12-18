@@ -111,7 +111,6 @@ export const Login = () => {
         clear();
         setErrorMsg("username email or password mismuch your cradentials");
       } else {
-        console.log("res", res);
         updateUser(res.data);
         navigate("/");
       }

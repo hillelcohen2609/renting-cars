@@ -28,9 +28,6 @@ export const Catalog = () => {
   //rentalData && dispatch(setRentalCarsData(rentalData));
   const carsData = useSelector((state) => state.cars.cars);
 
-  console.log("data", data);
-  console.log("carsData", carsData);
-
   return (
     <Stack
       minHeight={"93vh"}

@@ -20,8 +20,6 @@ const loadState = () => {
 // Save state to localStorage
 const saveState = (state) => {
   try {
-    console.log("save state", state.user);
-
     const serializedState = JSON.stringify(state);
     localStorage.setItem("authState", serializedState);
   } catch (e) {

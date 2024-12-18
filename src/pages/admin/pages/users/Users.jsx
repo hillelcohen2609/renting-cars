@@ -16,8 +16,6 @@ export const Users = () => {
   const [users, setUsers] = useState([]);
   const [restore, setRestore] = useState(1);
 
-  console.log("users", users);
-
   useEffect(() => {
     getAllUsers().then((res) => {
       if (res.status === 200) {

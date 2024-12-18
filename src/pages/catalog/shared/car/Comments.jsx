@@ -12,8 +12,6 @@ export const Comments = ({ idUser, carId }) => {
     rating: 0,
   });
 
-  console.log("comments", comments);
-
   useEffect(() => {
     // Fetch all comments from the server
     axios

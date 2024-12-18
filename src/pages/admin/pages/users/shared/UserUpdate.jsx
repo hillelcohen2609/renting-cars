@@ -36,7 +36,6 @@ export const UserUpdate = ({ user, setRestore }) => {
         ...data,
         isAdmin: data.isAdmin === "true",
       };
-      console.log("Update:", formattedData);
       updateUser(userId, { ...formattedData, idUser: userId });
       setRestore((prev) => prev + 1);
     } else if (action === "delete") {
