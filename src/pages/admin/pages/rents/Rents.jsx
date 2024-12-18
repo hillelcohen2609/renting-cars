@@ -12,6 +12,8 @@ export const Rents = () => {
     restore
   );
 
+  console.log("allRents", allRents);
+
   return (
     <Stack alignItems={"center"} justifyContent={"center"}>
       <Typography variant="h5">Add a new rent</Typography>
