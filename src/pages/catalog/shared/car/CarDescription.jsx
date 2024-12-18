@@ -107,6 +107,7 @@ export const CarDescription = () => {
               />
               <Div text={carDetails.type} description={"the type car:"} />
               <Button
+                fullWidth
                 sx={{ background: "blue" }}
                 variant="contained"
                 onClick={() => navigate("order")}

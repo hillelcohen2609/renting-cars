@@ -59,7 +59,7 @@ export const Comments = ({ idUser, carId }) => {
         setNewComment({ comment: "", rating: 0 });
         // Optionally refetch comments or add the new comment to the local state
         axios
-          .get(`${BASE_API}api/responses/getAllResponses`)
+          .get(`${BASE_API}api/responses/getResponsesByCar/${carId}`)
           .then((res) => setComments(res.data));
       })
       .catch((_err) => toast.error("Error uploading the comment"));
@@ -95,23 +95,27 @@ export const Comments = ({ idUser, carId }) => {
       <Typography>All comments:</Typography>
       {comments ? (
         comments.length > 0 ? (
-          comments.map((comment) => (
-            <div
-              style={{
-                border: "1px solid grey",
-                padding: "2px",
-                borderRadius: "8px",
-              }}
-              key={comment.idResponse}
-            >
-              <p>{comment.comment}</p>
-              <p>{comment.commentDate}</p>
-              <p>
-                {comment.rating}
-                <Star />
-              </p>
-            </div>
-          ))
+          <div style={{ display: "flex", flexWrap: "wrap" }}>
+            {comments.map((comment) => (
+              <div
+                style={{
+                  width: "25%",
+                  border: "1px solid grey",
+                  padding: "2px",
+                  borderRadius: "8px",
+                  margin: "0.5rem 0.5rem",
+                }}
+                key={comment.idResponse}
+              >
+                <p>{comment.comment}</p>
+                <p>{comment.commentDate}</p>
+                <p>
+                  {comment.rating}
+                  <Star />
+                </p>
+              </div>
+            ))}
+          </div>
         ) : (
           <Typography>No Comments Yet</Typography>
         )
