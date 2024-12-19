@@ -4,11 +4,7 @@ import { Filter } from "./shared/filter/Filter";
 import { fetchDataHook } from "../../hooks/fetchDataHook";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import {
-  setCarsData,
-  setRentalCarsData,
-  setAllCarsData,
-} from "../../redux/carsSlice";
+import { setCarsData, setAllCarsData } from "../../redux/carsSlice";
 import { useEffect } from "react";
 export const Catalog = () => {
   const data = fetchDataHook("http://localhost:8080/api/cars/getAllCars");

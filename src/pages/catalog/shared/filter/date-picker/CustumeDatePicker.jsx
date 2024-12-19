@@ -9,13 +9,12 @@ import {
   setUpperTimeRange,
 } from "../../../../../redux/filterSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../../../redux/store";
 
 export const CustumeDatePicker = () => {
-  const timeRange = useSelector((state: RootState) => state.filter);
+  const timeRange = useSelector((state) => state.filter);
   const dispatch = useDispatch();
 
-  const hundleChangeDate = (value: Dayjs | null, key: number) => {
+  const hundleChangeDate = (value, key) => {
     if (value) {
       //const milliseconds = value.get("millisecond");
       const localTime = value.valueOf();

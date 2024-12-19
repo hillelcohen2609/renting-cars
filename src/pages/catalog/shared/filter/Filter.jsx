@@ -4,21 +4,20 @@ import { CustumeDatePicker } from "./date-picker/CustumeDatePicker";
 import { setPriceRange } from "../../../../redux/filterSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../../redux/store";
 import { setCarsData } from "../../../../redux/carsSlice";
 import { fetchDataHook } from "../../../../hooks/fetchDataHook";
 import { format } from "date-fns";
 
-function valuetext(value: number) {
+function valuetext(value) {
   return `${value}$`;
 }
 
 export const Filter = () => {
   const dispatch = useDispatch();
-  const priceRange = useSelector((state: RootState) => state.filter.priceRange);
+  const priceRange = useSelector((state) => state.filter.priceRange);
   //const allCars = useSelector((state: RootState) => state.cars.allCars);
   const { baseTimeRange, upperTimeRange } = useSelector(
-    (state: RootState) => state.filter
+    (state) => state.filter
   );
 
   const carWithRange = fetchDataHook(
@@ -28,7 +27,7 @@ export const Filter = () => {
     )}&endDate=${format(new Date(upperTimeRange), "yyyy-MM-dd")}`
   );
 
-  const handleChange = (_event: Event, newValue: number | number[]) => {
+  const handleChange = (_event, newValue) => {
     dispatch(setPriceRange(newValue));
   };
 
